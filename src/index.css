@@ -87,12 +87,18 @@ ul {
 
 .progress {
   margin-bottom: 4rem;
-  display: grid;
-  justify-content: space-between;
-  gap: 1.2rem;
-  grid-template-columns: auto auto;
   font-size: 1.8rem;
   color: var(--color-dark);
+}
+
+.progress label {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.progress span:last-child {
+  text-align: right;
 }
 
 progress {
@@ -111,6 +117,7 @@ progress {
 ::-webkit-progress-value {
   background-color: var(--color-theme);
   border-radius: 100px;
+  transition: all 0.35s;
 }
 
 .btn {
