@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from 'react'
+import { Header } from '@/components/header'
 
 const secondsPerQuestion = 30
 
@@ -52,12 +53,6 @@ const Timer = ({ state }) => {
   const secs = state.seconds % 60
   return <div className="timer">{mins < 10 ? `0${mins}` : mins}:{secs < 10 ? `0${secs}` : secs}</div>
 }
-
-const Header = () =>
-  <header className="app-header">
-    <img src="logo-quiz-videogames.png" alt="Logo do Quiz dos Videogames" />
-    <h1>Quiz dos Videogames</h1>
-  </header>
 
 const Start = ({ state, onClickStart }) =>
   <div className="start">
