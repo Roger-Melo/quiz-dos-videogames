@@ -4,6 +4,7 @@ import { Timer } from '@/components/timer'
 import { Start } from '@/components/start'
 import { Result } from '@/components/result'
 import { ButtonNext } from '@/components/button-next'
+import { Progress } from '@/components/progress'
 
 const secondsPerQuestion = 30
 
@@ -50,19 +51,6 @@ const reducer = (state, action) => {
   }
 
   return state
-}
-
-const Progress = ({ state, maxScore, userHasAnswered }) => {
-  const progressValue = userHasAnswered ? state.currentQuestion + 1 : state.currentQuestion
-  return (
-    <header className="progress">
-      <label>
-        <progress max={state.apiData.length} value={progressValue}>{progressValue}</progress>
-        <span>Questão <b>{state.currentQuestion + 1}</b> / {state.apiData.length}</span>
-        <span><b>{state.userScore}</b> / {maxScore}</span>
-      </label>
-    </header>
-  )
 }
 
 const Questions = ({ state, userHasAnswered, onClickOption }) =>
