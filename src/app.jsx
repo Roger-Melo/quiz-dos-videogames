@@ -1,4 +1,11 @@
 import { useEffect, useReducer } from 'react'
+import { Header } from '@/components/header'
+import { Timer } from '@/components/timer'
+import { Start } from '@/components/start'
+import { Result } from '@/components/result'
+import { ButtonNext } from '@/components/button-next'
+import { Progress } from '@/components/progress'
+import { Questions } from '@/components/questions'
 
 const secondsPerQuestion = 30
 
@@ -46,82 +53,6 @@ const reducer = (state, action) => {
 
   return state
 }
-
-const Timer = ({ state }) => {
-  const mins = Math.floor(state.seconds / 60)
-  const secs = state.seconds % 60
-  return <div className="timer">{mins < 10 ? `0${mins}` : mins}:{secs < 10 ? `0${secs}` : secs}</div>
-}
-
-const Header = () =>
-  <header className="app-header">
-    <img src="logo-quiz-videogames.png" alt="Logo do Quiz dos Videogames" />
-    <h1>Quiz dos Videogames</h1>
-  </header>
-
-const Start = ({ state, onClickStart }) =>
-  <div className="start">
-    <h2>Bem vindo(a) ao Quiz dos Videogames!</h2>
-    <h3>{state.apiData.length} questões pra te testar</h3>
-    <button onClick={onClickStart} className="btn">Bora começar</button>
-  </div>
-
-const Result = ({ state, maxScore, onClickRestart }) => {
-  const percentage = state.userScore / maxScore * 100
-  return (
-    <>
-      <div className="result">
-        <span>Você fez <b>{state.userScore}</b> pontos de {maxScore} ({percentage}%)</span>
-      </div>
-      <button onClick={onClickRestart} className="btn btn-ui">Reiniciar quiz</button>
-    </>
-  )
-}
-
-const ButtonNext = ({ state, onClickNextQuestion }) =>
-  <button onClick={onClickNextQuestion} className="btn btn-ui">
-    {state.currentQuestion === state.apiData.length - 1 ? 'Finalizar' : 'Próxima'}
-  </button>
-
-const Progress = ({ state, maxScore, userHasAnswered }) => {
-  const progressValue = userHasAnswered ? state.currentQuestion + 1 : state.currentQuestion
-  return (
-    <header className="progress">
-      <label>
-        <progress max={state.apiData.length} value={progressValue}>{progressValue}</progress>
-        <span>Questão <b>{state.currentQuestion + 1}</b> / {state.apiData.length}</span>
-        <span><b>{state.userScore}</b> / {maxScore}</span>
-      </label>
-    </header>
-  )
-}
-
-const Questions = ({ state, userHasAnswered, onClickOption }) =>
-  <div>
-    <h4>{state.apiData[state.currentQuestion].question}</h4>
-    <ul className="options">
-      {state.apiData[state.currentQuestion].options.map((option, index) => {
-        const answerClass = state.clickedOption === index ? 'answer' : ''
-        const correctOrWrongClass = userHasAnswered
-          ? state.apiData[state.currentQuestion]?.correctOption === index
-            ? 'correct'
-            : 'wrong'
-          : ''
-
-        return (
-          <li key={option}>
-            <button
-              onClick={() => onClickOption(index)}
-              className={`btn btn-option ${answerClass} ${correctOrWrongClass}`}
-              disabled={userHasAnswered}
-            >
-              {option}
-            </button>
-          </li>
-        )
-      })}
-    </ul>
-  </div>
 
 const initialState = { currentQuestion: 0, apiData: [], clickedOption: null, userScore: 0, appStatus: 'ready', seconds: null }
 
