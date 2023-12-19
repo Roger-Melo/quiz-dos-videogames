@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from 'react'
 import { Header } from '@/components/header'
 import { Timer } from '@/components/timer'
+import { Start } from '@/components/start'
 
 const secondsPerQuestion = 30
 
@@ -48,13 +49,6 @@ const reducer = (state, action) => {
 
   return state
 }
-
-const Start = ({ state, onClickStart }) =>
-  <div className="start">
-    <h2>Bem vindo(a) ao Quiz dos Videogames!</h2>
-    <h3>{state.apiData.length} questões pra te testar</h3>
-    <button onClick={onClickStart} className="btn">Bora começar</button>
-  </div>
 
 const Result = ({ state, maxScore, onClickRestart }) => {
   const percentage = state.userScore / maxScore * 100
