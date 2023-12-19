@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react'
 import { Header } from '@/components/header'
+import { Timer } from '@/components/timer'
 
 const secondsPerQuestion = 30
 
@@ -46,12 +47,6 @@ const reducer = (state, action) => {
   }
 
   return state
-}
-
-const Timer = ({ state }) => {
-  const mins = Math.floor(state.seconds / 60)
-  const secs = state.seconds % 60
-  return <div className="timer">{mins < 10 ? `0${mins}` : mins}:{secs < 10 ? `0${secs}` : secs}</div>
 }
 
 const Start = ({ state, onClickStart }) =>
