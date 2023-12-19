@@ -3,6 +3,7 @@ import { Header } from '@/components/header'
 import { Timer } from '@/components/timer'
 import { Start } from '@/components/start'
 import { Result } from '@/components/result'
+import { ButtonNext } from '@/components/button-next'
 
 const secondsPerQuestion = 30
 
@@ -50,11 +51,6 @@ const reducer = (state, action) => {
 
   return state
 }
-
-const ButtonNext = ({ state, onClickNextQuestion }) =>
-  <button onClick={onClickNextQuestion} className="btn btn-ui">
-    {state.currentQuestion === state.apiData.length - 1 ? 'Finalizar' : 'Próxima'}
-  </button>
 
 const Progress = ({ state, maxScore, userHasAnswered }) => {
   const progressValue = userHasAnswered ? state.currentQuestion + 1 : state.currentQuestion
