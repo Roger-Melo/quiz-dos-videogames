@@ -37,26 +37,6 @@ body {
   width: 50rem;
 }
 
-.app-header {
-  margin-bottom: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-header img {
-  margin-right: 1rem;
-}
-
-img {
-  width: 14rem;
-}
-
-h1 {
-  font-family: 'Wellfleet', serif;
-  font-size: 5.6rem;
-}
-
 h2 {
   font-size: 3.6rem;
   margin-bottom: 2rem;
