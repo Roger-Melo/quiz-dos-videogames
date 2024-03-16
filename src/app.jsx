@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Header } from '@/components/header'
 import { Timer } from '@/components/timer'
 import { Start } from '@/components/start'
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <div className="app">
+      <StyledApp>
         <Header />
         <main className="main">
           {state.appStatus === 'ready' && <Start state={state} onClickStart={handleClickStart} />}
@@ -39,10 +39,17 @@ const App = () => {
             </>
           )}
         </main>
-      </div>
+      </StyledApp>
     </>
   )
 }
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 const GlobalStyle = createGlobalStyle`
   * {
