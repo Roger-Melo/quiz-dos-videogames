@@ -57,12 +57,10 @@ const useQuiz = () => {
   const handleClickNextQuestion = useCallback(() => dispatch({ type: 'clicked_next_question' }), [])
   const handleClickRestart = useCallback(() => dispatch({ type: 'clicked_restart' }), [])
   const handleTimer = useCallback(({ message }) => dispatch({ type: message }), [])
-  const userHasAnswered = state.clickedOption !== null
   const maxScore = state.apiData.reduce((acc, q) => acc + q.points, 0)
 
   return {
     state,
-    userHasAnswered,
     maxScore,
     handleClickStart,
     handleClickOption,
