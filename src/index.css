@@ -30,12 +30,6 @@ ul {
   list-style: none;
 }
 
-.start {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .progress {
   margin-bottom: 4rem;
   font-size: 1.8rem;
