@@ -33,7 +33,6 @@ const StyledTimer = styled.div`
   font-size: 1.8rem;
   color: ${({ theme }) => theme.colors.gray};
   padding: 1.35rem 2.8rem;
-  border-radius: 100px;
 `
 
 export { Timer }
