@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Button = ({ children, disabled = false, onClick }) =>
   <StyledButton onClick={onClick} disabled={disabled}>{children}</StyledButton>
@@ -34,30 +34,24 @@ const NextButton = styled(StyledButton)`
   float: right;
 `
 
-const OptionButton = styled(StyledButton)`
-  transform: ${props => props.$state.clickedOption === props.$index ? 'translateX(2rem)' : ''};
-  background-color: ${props => props.$userHasAnswered
-    ? props.$state.apiData[props.$state.currentQuestion]?.correctOption === props.$index
-      ? 'var(--color-correct)'
-      : 'var(--color-wrong)'
-    : ''};
-  border: ${props => props.$userHasAnswered
-    ? props.$state.apiData[props.$state.currentQuestion]?.correctOption === props.$index
-      ? '2px solid var(--color-correct)'
-      : '2px solid var(--color-wrong)'
-    : ''};
-  color: ${props => props.$userHasAnswered
-    ? props.$state.apiData[props.$state.currentQuestion]?.correctOption === props.$index
-      ? 'var(--color-dark)'
-      : 'var(--color-lightest)'
-    : ''};
+const OptionButton = styled(StyledButton)`${({ $state, $index, $userHasAnswered }) => {
+  const apply = ({ correct, wrong }) => $userHasAnswered
+    ? $state.apiData[$state.currentQuestion]?.correctOption === $index
+      ? correct
+      : wrong
+    : ''
 
-  width: 100%;
-  text-align: left;
+  return css`
+    transform: ${$state.clickedOption === $index ? 'translateX(2rem)' : ''};
+    background-color: ${apply({ correct: 'var(--color-correct)', wrong: 'var(--color-wrong)' })};
+    border: ${apply({ correct: '2px solid var(--color-correct)', wrong: '2px solid var(--color-wrong)' })};
+    color: ${apply({ correct: 'var(--color-dark)', wrong: 'var(--color-lightest)' })};
+    width: 100%;
+    text-align: left;
 
-  &:not([disabled]):hover {
-    transform: translateX(1.2rem);
-  }
-`
+    &:not([disabled]):hover {
+      transform: translateX(1.2rem);
+    }
+`}}`
 
 export { Button, OptionButton, RestartButton, NextButton }
