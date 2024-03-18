@@ -72,22 +72,6 @@ progress {
   margin-bottom: 3.2rem;
 }
 
-.result {
-  background-color: var(--color-theme);
-  color: var(--color-dark);
-  border-radius: 100px;
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 1.6rem;
-}
-
-.result span {
-  font-size: 2.2rem;
-  margin-right: 4px;
-}
-
 .highscore {
   font-size: 1.8rem;
   text-align: center;
