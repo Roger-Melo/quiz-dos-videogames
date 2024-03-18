@@ -1,15 +1,16 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { Header } from '@/components/header'
 import { Main } from '@/components/main'
+import { theme } from '@/resources/theme'
 
 const App = () =>
-  <>
+  <ThemeProvider theme={theme}>
     <GlobalStyle />
     <StyledApp>
       <Header />
       <Main />
     </StyledApp>
-  </>
+  </ThemeProvider>
 
 const StyledApp = styled.div`
   display: flex;
@@ -32,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    color: var(--color-dark);
-    background-color: var(--color-lightest);
+    color: ${({ theme }) => theme.colors.gray};
+    background-color: ${({ theme }) => theme.colors.white};
     padding: 3.2rem;
   }
 

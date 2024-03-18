@@ -28,16 +28,16 @@ const OptionsList = styled.ul`
   margin-bottom: 3.2rem;
 `
 
-const OptionButton = styled(Button)`${({ $state, $index, $userHasAnswered }) => {
+const OptionButton = styled(Button)`${({ $state, $index, $userHasAnswered, theme }) => {
   const apply = ({ correct, wrong }) => $userHasAnswered
     ? $state.apiData[$state.currentQuestion]?.correctOption === $index
       ? correct
       : wrong
     : ''
-
-  const bgColor = { correct: 'var(--color-correct)', wrong: 'var(--color-wrong)' }
-  const border = { correct: `.2rem solid ${bgColor.correct}`, wrong: `.2rem solid ${bgColor.wrong}` }
-  const color = { correct: 'var(--color-dark)', wrong: 'var(--color-lightest)' }
+  const { colors } = theme
+  const bgColor = { correct: colors.green, wrong: colors.magenta }
+  const border = { correct: `.2rem solid ${colors.green}`, wrong: `.2rem solid ${colors.magenta}` }
+  const color = { correct: colors.gray, wrong: colors.white }
   return css`
     transform: ${$state.clickedOption === $index ? 'translateX(2rem)' : ''};
     background-color: ${apply(bgColor)};
@@ -49,6 +49,7 @@ const OptionButton = styled(Button)`${({ $state, $index, $userHasAnswered }) => 
     &:not([disabled]):hover {
       transform: translateX(1.2rem);
     }
-`}}`
+  `
+}}`
 
 export { Questions }

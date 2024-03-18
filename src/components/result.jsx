@@ -17,8 +17,8 @@ const RestartButton = styled(Button)`
 `
 
 const Message = styled.div`
-  background-color: var(--color-theme);
-  color: var(--color-dark);
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.gray};
   border-radius: 10rem;
   text-align: center;
   padding: 2rem 0;

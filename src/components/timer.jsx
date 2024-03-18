@@ -31,7 +31,7 @@ const Timer = ({ state, onHandleTimer }) => {
 const StyledTimer = styled.div`
   float: left;
   font-size: 1.8rem;
-  color: var(--color-dark);
+  color: ${({ theme }) => theme.colors.gray};
   padding: 1.35rem 2.8rem;
   border-radius: 100px;
 `

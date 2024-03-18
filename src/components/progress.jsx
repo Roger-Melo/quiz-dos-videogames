@@ -16,7 +16,7 @@ const Progress = ({ state, maxScore, userHasAnswered }) => {
 const Header = styled.header`
   margin-bottom: 4rem;
   font-size: 1.8rem;
-  color: var(--color-dark);
+  color: ${({ theme }) => theme.colors.gray};
 
   & span:last-child {
     text-align: right;
@@ -42,7 +42,7 @@ const StyledProgress = styled.progress`
   }
 
   &::-webkit-progress-value {
-    background-color: var(--color-theme);
+    background-color: ${({ theme }) => theme.colors.blue};
     border-radius: 10rem;
     transition: all 0.35s;
   }
