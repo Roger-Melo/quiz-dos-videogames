@@ -1,5 +1,6 @@
+import styled from 'styled-components'
 import { getResultMessage } from '@/utils/get-result-message'
-import { RestartButton } from '@/components/shared/button'
+import { Button } from '@/components/shared/button'
 
 const Result = ({ state, maxScore, onClickRestart }) => {
   const resultMessage = getResultMessage({ score: state.userScore, maxScore })
@@ -12,5 +13,9 @@ const Result = ({ state, maxScore, onClickRestart }) => {
     </>
   )
 }
+
+const RestartButton = styled(Button)`
+  float: right;
+`
 
 export { Result }

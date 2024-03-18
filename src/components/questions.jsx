@@ -1,4 +1,5 @@
-import { OptionButton } from '@/components/shared/button'
+import styled, { css } from 'styled-components'
+import { Button } from '@/components/shared/button'
 
 const Questions = ({ state, userHasAnswered, onClickOption }) =>
   <div>
@@ -13,5 +14,25 @@ const Questions = ({ state, userHasAnswered, onClickOption }) =>
       )}
     </ul>
   </div>
+
+const OptionButton = styled(Button)`${({ $state, $index, $userHasAnswered }) => {
+  const apply = ({ correct, wrong }) => $userHasAnswered
+    ? $state.apiData[$state.currentQuestion]?.correctOption === $index
+      ? correct
+      : wrong
+    : ''
+
+  return css`
+    transform: ${$state.clickedOption === $index ? 'translateX(2rem)' : ''};
+    background-color: ${apply({ correct: 'var(--color-correct)', wrong: 'var(--color-wrong)' })};
+    border: ${apply({ correct: '2px solid var(--color-correct)', wrong: '2px solid var(--color-wrong)' })};
+    color: ${apply({ correct: 'var(--color-dark)', wrong: 'var(--color-lightest)' })};
+    width: 100%;
+    text-align: left;
+
+    &:not([disabled]):hover {
+      transform: translateX(1.2rem);
+    }
+`}}`
 
 export { Questions }

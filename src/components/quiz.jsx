@@ -1,5 +1,6 @@
+import styled from 'styled-components'
+import { Button } from '@/components/shared/button'
 import { Timer } from '@/components/timer'
-import { NextButton } from '@/components/shared/button'
 import { Progress } from '@/components/progress'
 import { Questions } from '@/components/questions'
 
@@ -20,5 +21,9 @@ const Quiz = ({ state, maxScore, onClickOption, onHandleTimer, onClickNextQuesti
     </>
   )
 }
+
+const NextButton = styled(Button)`
+  float: right;
+`
 
 export { Quiz }
