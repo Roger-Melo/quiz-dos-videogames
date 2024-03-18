@@ -1,5 +1,5 @@
 import { Timer } from '@/components/timer'
-import { ButtonNext } from '@/components/button-next'
+import { NextButton } from '@/components/shared/button'
 import { Progress } from '@/components/progress'
 import { Questions } from '@/components/questions'
 
@@ -11,7 +11,11 @@ const Quiz = ({ state, maxScore, onClickOption, onHandleTimer, onClickNextQuesti
       <Questions state={state} userHasAnswered={userHasAnswered} onClickOption={onClickOption} />
       <div>
         <Timer state={state} onHandleTimer={onHandleTimer} />
-        {userHasAnswered && <ButtonNext state={state} onClickNextQuestion={onClickNextQuestion} />}
+        {userHasAnswered && (
+          <NextButton onClick={onClickNextQuestion}>
+            {state.currentQuestion === state.apiData.length - 1 ? 'Finalizar' : 'Próxima'}
+          </NextButton>
+        )}
       </div>
     </>
   )

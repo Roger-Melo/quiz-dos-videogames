@@ -1,4 +1,5 @@
 import { getResultMessage } from '@/utils/get-result-message'
+import { RestartButton } from '@/components/shared/button'
 
 const Result = ({ state, maxScore, onClickRestart }) => {
   const resultMessage = getResultMessage({ score: state.userScore, maxScore })
@@ -7,7 +8,7 @@ const Result = ({ state, maxScore, onClickRestart }) => {
       <div className="result">
         <span>{resultMessage}</span>
       </div>
-      <button onClick={onClickRestart} className="btn btn-ui">Reiniciar quiz</button>
+      <RestartButton onClick={onClickRestart}>Reiniciar quiz</RestartButton>
     </>
   )
 }

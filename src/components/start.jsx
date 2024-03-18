@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { Button } from '@/components/shared/button'
 
 const Start = ({ state, onClickStart }) =>
   <StyledStart>
     <h2>Bem vindo(a) ao Quiz dos Videogames!</h2>
     <h3>{state.apiData.length} questões pra te testar</h3>
-    <button onClick={onClickStart} className="btn">Bora começar</button>
+    <Button onClick={onClickStart}>Bora começar</Button>
   </StyledStart>
 
 const StyledStart = styled.div`
