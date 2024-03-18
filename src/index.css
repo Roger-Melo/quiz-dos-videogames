@@ -30,41 +30,6 @@ ul {
   list-style: none;
 }
 
-.progress {
-  margin-bottom: 4rem;
-  font-size: 1.8rem;
-  color: var(--color-dark);
-}
-
-.progress label {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.progress span:last-child {
-  text-align: right;
-}
-
-progress {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 12px;
-  grid-column: 1 / -1;
-}
-
-::-webkit-progress-bar {
-  background-color: #d2d2d2;
-  border-radius: 100px;
-}
-
-::-webkit-progress-value {
-  background-color: var(--color-theme);
-  border-radius: 100px;
-  transition: all 0.35s;
-}
-
 .options {
   display: flex;
   flex-direction: column;
