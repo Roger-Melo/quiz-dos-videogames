@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "6.1.8"
   },
   "devDependencies": {
     "@types/react": "18.2.43",
@@ -22,7 +23,7 @@
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.5",
-    "vite": "5.0.7",
+    "vite": "5.1.6",
     "vitest": "1.1.0"
   }
 }
