@@ -36,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--color-lightest);
     padding: 3.2rem;
   }
+
+  ul {
+    list-style: none;
+  }
 `
 
 export { App }
