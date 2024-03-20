@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { getResultMessage } from '@/utils/get-result-message'
 import { Button } from '@/components/shared/button'
 
@@ -16,15 +16,15 @@ const RestartButton = styled(Button)`
   float: right;
 `
 
-const Message = styled.div`
-  background-color: ${({ theme }) => theme.colors.blue};
-  color: ${({ theme }) => theme.colors.gray};
+const Message = styled.div`${({ theme }) => css`
+  background-color: ${theme.colors.blue};
+  color: ${theme.colors.gray};
   border-radius: 10rem;
   text-align: center;
   padding: 2rem 0;
   font-size: 2.2rem;
   font-weight: 500;
   margin-bottom: 1.6rem;
-`
+`}`
 
 export { Result }
