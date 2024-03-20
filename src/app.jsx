@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, { css, createGlobalStyle, ThemeProvider } from 'styled-components'
 import { Header } from '@/components/header'
 import { Main } from '@/components/main'
 import { theme } from '@/resources/theme'
@@ -19,7 +19,7 @@ const StyledApp = styled.div`
   justify-content: center;
 `
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`${({ theme }) => css`
   * {
     margin: 0;
     padding: 0;
@@ -33,14 +33,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    color: ${({ theme }) => theme.colors.gray};
-    background-color: ${({ theme }) => theme.colors.white};
+    color: ${theme.colors.gray};
+    background-color: ${theme.colors.white};
     padding: 3.2rem;
   }
 
   ul {
     list-style: none;
   }
-`
+`}`
 
 export { App }
